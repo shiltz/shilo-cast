@@ -1,0 +1,10 @@
+<div>
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+  <tbody>
+  <tr *ngFor="let data of weather">
+    <td class="mdl-data-table__cell--non-numeric">{{data.name}}</td>
+    <td>{{data.value}}</td>
+  </tr>
+  </tbody>
+</table>
+</div>
