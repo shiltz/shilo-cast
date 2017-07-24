@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Weather } from './mock-weather';
 
 @Component({
@@ -6,13 +6,11 @@ import { Weather } from './mock-weather';
   templateUrl: './detailed-weather.component.html',
   styleUrls: ['./detailed-weather.component.scss']
 })
-export class DetailedWeatherComponent implements OnInit {
+export class DetailedWeatherComponent {
 
   private readonly weather:any = new Weather().weather;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
 }

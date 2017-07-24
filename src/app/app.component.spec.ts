@@ -4,6 +4,9 @@ import { AppComponent } from './app.component';
 import { CurrentWeatherComponent } from './widgets/current-weather/current-weather.component';
 import { ForecastWeatherComponent } from './widgets/forecast-weather/forecast-weather.component';
 import { WeatherSummaryComponent } from './widgets/weather-summary/weather-summary.component';
+import { DetailedWeatherComponent } from './widgets/detailed-weather/detailed-weather.component';
+import { HourlyForecastWeatherComponent } from './widgets/hourly-forecast-weather/hourly-forecast-weather.component';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,7 +15,9 @@ describe('AppComponent', () => {
         AppComponent,
         CurrentWeatherComponent,
         ForecastWeatherComponent,
-        WeatherSummaryComponent
+        WeatherSummaryComponent,
+        DetailedWeatherComponent,
+        HourlyForecastWeatherComponent
       ],
     }).compileComponents();
   }));

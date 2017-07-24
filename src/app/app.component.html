@@ -1,58 +1,61 @@
 <!-- Uses a header that scrolls with the text, rather than staying
   locked at the top -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">SA WEATHER FORECAST</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+<div class="transparent-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">SA WEATHER FORECAST</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
                   mdl-textfield--floating-label mdl-textfield--align-right">
-                <label class="mdl-button mdl-js-button mdl-button--icon"
-                       for="fixed-header-drawer-exp">
-                    <i class="material-icons">search</i>
+        <label class="mdl-button mdl-js-button mdl-button--icon"
+               for="fixed-header-drawer-exp">
+          <i class="material-icons">search</i>
 
-                </label>
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" name="city"
-                           id="fixed-header-drawer-exp">
-                  <label class="mdl-textfield__label" for="fixed-header-drawer-exp">Search text</label>
-                </div>
-            </div>
-            <!-- Navigation -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="">Overview</a>
-                <a class="mdl-navigation__link" href="">Johannesburg</a>
-                <a class="mdl-navigation__link" href="">Cape Town</a>
-                <a class="mdl-navigation__link" href="">Durban</a>
-            </nav>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="city"
+                 id="fixed-header-drawer-exp">
+          <label class="mdl-textfield__label" for="fixed-header-drawer-exp">City name</label>
         </div>
-    </header>
-    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-        <span class="mdl-layout-title">SA WEATHER FORECAST</span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Overview</a>
-          <a class="mdl-navigation__link" href="">Johannesburg</a>
-          <a class="mdl-navigation__link" href="">Cape Town</a>
-          <a class="mdl-navigation__link" href="">Durban</a>
-        </nav>
+      </div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Overview</a>
+        <a class="mdl-navigation__link" href="">Johannesburg</a>
+        <a class="mdl-navigation__link" href="">Cape Town</a>
+        <a class="mdl-navigation__link" href="">Durban</a>
+      </nav>
     </div>
-    <main class="mdl-layout__content">
-        <div class="page-content">
-            <current-weather></current-weather>
-          <forecast-weather></forecast-weather>
-        </div>
-      <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">&copy; {{getYear()}} Shilton Naicker</div>
-          <ul class="mdl-mini-footer__link-list">
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Privacy & Terms</a></li>
-          </ul>
-        </div>
-      </footer>
-    </main>
-
-
+  </header>
+  <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+    <span class="mdl-layout-title">SA WEATHER FORECAST</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Overview</a>
+      <a class="mdl-navigation__link" href="">Johannesburg</a>
+      <a class="mdl-navigation__link" href="">Cape Town</a>
+      <a class="mdl-navigation__link" href="">Durban</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="main-content">
+      <div class="main-content__aside"></div>
+      <div class="main-content__weather">
+        <current-weather></current-weather>
+        <hourly-forecast-weather></hourly-forecast-weather>
+        <forecast-weather></forecast-weather>
+      </div>
+      <div class="main-content__aside"></div>
+    </div>
+    <footer class="mdl-mini-footer">
+      <div class="mdl-mini-footer__left-section">
+        <div class="mdl-logo">&copy; {{getYear()}} Shilton Naicker</div>
+        <ul class="mdl-mini-footer__link-list">
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Privacy & Terms</a></li>
+        </ul>
+      </div>
+    </footer>
+  </main>
 </div>

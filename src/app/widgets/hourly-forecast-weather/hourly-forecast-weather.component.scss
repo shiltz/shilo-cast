@@ -1,0 +1,30 @@
+@import "../../../styles";
+
+.container {
+  display: flex;
+  flex-flow: column;
+
+  &__heading {
+    display: block;
+  }
+
+  &__body {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    > * {
+      padding: $component-default-padding 0 $component-default-padding 0;
+    }
+  }
+
+  &__footer {
+    display: block;
+  }
+}
+
+
+
+

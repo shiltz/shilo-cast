@@ -28,7 +28,7 @@ export class WeatherSummaryComponent {
   }
 
   getDay(): string {
-    let day = new Date().getDay();
+    let day = 0;
     return this.DAYS[day];
   }
 }

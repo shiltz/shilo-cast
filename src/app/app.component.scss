@@ -1,6 +1,22 @@
-.page-content {
-  padding: 0rem 8rem 0 8rem;
-
+.transparent-layout {
+  background: url('../assets/images/background.jpg') center / cover;
 }
 
+
+
+.main-content {
+  display: flex;
+  flex-flow: row;
+  &__aside {
+    display: block;
+    width: 20rem;
+  }
+
+  &__weather {
+    padding: 0rem 8rem 0 8rem;
+    //background-color: white;
+    display: flex;
+    flex-flow: column;
+  }
+}
 
