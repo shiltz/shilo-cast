@@ -1,7 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {Weather} from './mock-weather';
 import {IconMapperService} from '../../services/icon-mapper.service';
-// import Weather from "./weather";
+import WeatherForecast from "./weather-forecast";
 
 @Component({
   selector: 'weather-summary',
@@ -11,8 +10,8 @@ import {IconMapperService} from '../../services/icon-mapper.service';
 })
 export class WeatherSummaryComponent {
 
-  // @Input('weather') weather: Weather;
-  private weather = new Weather().weather;
+  private _weatherStation:WeatherForecast;
+
   private readonly DAYS: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   constructor(private iconService:IconMapperService) {
@@ -20,15 +19,24 @@ export class WeatherSummaryComponent {
   }
 
   getIcon():string {
-    return '../../../assets/images/150x150/' + this.iconService.getIconName(this.weather.weather[0].icon);
+    return '../../../assets/images/150x150/' + this.iconService.getIconName(this._weatherStation.icon);
   }
 
   getTemperature(): number {
-    return this.weather.main.temp - 273.16;
+    return this._weatherStation.temp - 273.16;
   }
 
   getDay(): string {
-    let day = 0;
+    let day = new Date(this._weatherStation.dt * 1000).getDay();
     return this.DAYS[day];
+  }
+
+  @Input('weather')
+  set weatherStation(weatherStation:WeatherForecast){
+    this._weatherStation = weatherStation;
+  }
+
+  get weatherStation():WeatherForecast{
+    return this._weatherStation;
   }
 }

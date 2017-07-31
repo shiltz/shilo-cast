@@ -28,7 +28,7 @@ describe('ForecastWeatherComponent', () => {
     const fixture = TestBed.createComponent(ForecastWeatherComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toEqual('5 Day Forecast');
+    expect(compiled.querySelector('h4').textContent).toEqual('5 Day Forecast');
   }));
 
 

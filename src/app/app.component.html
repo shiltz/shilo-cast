@@ -4,7 +4,8 @@
   <header class="mdl-layout__header mdl-layout__header--transparent">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title">SA WEATHER FORECAST</span>
+      <span class="mdl-layout-title"><h3><img
+        src="../assets/images/south-africa-flag.png"/>SA WEATHER FORECAST</h3></span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
@@ -22,10 +23,10 @@
       </div>
       <!-- Navigation -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href="">Overview</a>
-        <a class="mdl-navigation__link" href="">Johannesburg</a>
-        <a class="mdl-navigation__link" href="">Cape Town</a>
-        <a class="mdl-navigation__link" href="">Durban</a>
+        <a class="mdl-navigation__link" routerLink="/home" routerLinkActive="active">Home</a>
+        <a class="mdl-navigation__link" routerLink="/city/Johannesburg" routerLinkActive="active">Johannesburg</a>
+        <a class="mdl-navigation__link" routerLink="/city/Cape_Town" routerLinkActive="active">Cape Town</a>
+        <a class="mdl-navigation__link" routerLink="/city/Durban" routerLinkActive="active">Durban</a>
       </nav>
     </div>
   </header>
@@ -39,15 +40,7 @@
     </nav>
   </div>
   <main class="mdl-layout__content">
-    <div class="main-content">
-      <div class="main-content__aside"></div>
-      <div class="main-content__weather">
-        <current-weather></current-weather>
-        <hourly-forecast-weather></hourly-forecast-weather>
-        <forecast-weather></forecast-weather>
-      </div>
-      <div class="main-content__aside"></div>
-    </div>
+    <router-outlet></router-outlet>
     <footer class="mdl-mini-footer">
       <div class="mdl-mini-footer__left-section">
         <div class="mdl-logo">&copy; {{getYear()}} Shilton Naicker</div>

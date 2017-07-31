@@ -1,4 +1,4 @@
-export default class Weather {
+export default class WeatherForecast {
   id: string;
   main: string;
   description: string;

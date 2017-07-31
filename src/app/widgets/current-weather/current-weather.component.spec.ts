@@ -25,7 +25,7 @@ describe('CurrentWeatherComponent', () => {
     const fixture = TestBed.createComponent(CurrentWeatherComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toEqual('Current Weather');
+    expect(compiled.querySelector('h4').textContent).toEqual('Current Weather');
   }));
 
   it('should render 1 weather summaries', async(() => {
@@ -35,10 +35,10 @@ describe('CurrentWeatherComponent', () => {
     expect(compiled.querySelectorAll('weather-summary').length).toEqual(1);
   }));
 
-  // it('should render 1 detailed weather summary', async(() => {
-  //   const fixture = TestBed.createComponent(CurrentWeatherComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelectorAll('detailed-weather').length).toEqual(1);
-  // }));
+  it('should render 1 detailed weather summary', async(() => {
+    const fixture = TestBed.createComponent(CurrentWeatherComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelectorAll('detailed-weather').length).toEqual(1);
+  }));
 });

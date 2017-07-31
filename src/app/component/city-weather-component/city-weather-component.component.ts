@@ -1,24 +1,16 @@
-import {Component} from '@angular/core';
-import {OnInit} from '@angular/core';
-import WeatherForecast from "./widgets/weather-summary/weather-forecast";
-
+import { Component, OnInit } from '@angular/core';
+import WeatherForecast from "../../widgets/weather-summary/weather-forecast";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'city-weather-component',
+  templateUrl: './city-weather-component.component.html',
+  styleUrls: ['./city-weather-component.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'Tour of heroes';
+export class CityWeatherComponentComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
 
-  ngOnInit():void {
-  }
-
-  getYear():number {
-    return new Date().getFullYear();
+  ngOnInit() {
   }
 
   getCurrentWeather():WeatherForecast {
@@ -38,4 +30,5 @@ export class AppComponent implements OnInit {
     weather.city = 'Sandton';
     return weather;
   }
+
 }
