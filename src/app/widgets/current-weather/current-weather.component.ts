@@ -34,6 +34,7 @@ export class CurrentWeatherComponent {
     weather.dt = 1500220800;
     weather.country = 'ZA';
     weather.city = 'Sandton';
+    weather.header = 'Sandton';
     return weather;
   }
 

@@ -1,0 +1,14 @@
+.main-content {
+  display: flex;
+  flex-flow: row;
+
+  &__aside {
+    display: block;
+    width: 20rem;
+  }
+
+  &__weather {
+    display: flex;
+    flex-flow: column;
+  }
+}

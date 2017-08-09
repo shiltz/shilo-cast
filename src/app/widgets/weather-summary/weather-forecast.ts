@@ -14,4 +14,5 @@ export default class WeatherForecast {
   sunrise: number;
   sunset: number;
   city: string;
+  header: string;
 }

@@ -28,6 +28,7 @@ export class CityWeatherComponentComponent implements OnInit {
     weather.dt = 1500220800;
     weather.country = 'ZA';
     weather.city = 'Sandton';
+    weather.header = 'Current Weather';
     return weather;
   }
 

@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="container__heading"><h4>Current Weather</h4></div>
+  <div class="container__heading"><h4>{{weatherStation.header}}</h4></div>
   <div class="container__body">
     <weather-summary [weather]="getCurrentWeather()"></weather-summary>
     <detailed-weather [weather-conditions]="getCurrentWeatherConditions()"></detailed-weather>
