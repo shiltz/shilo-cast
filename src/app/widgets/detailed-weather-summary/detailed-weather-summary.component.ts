@@ -52,4 +52,8 @@ export class DetailedWeatherSummaryComponent {
   get weatherStation():WeatherForecast {
     return this._weatherStation;
   }
+
+  getWeatherStation():WeatherForecast {
+    return this._weatherStation;
+  }
 }

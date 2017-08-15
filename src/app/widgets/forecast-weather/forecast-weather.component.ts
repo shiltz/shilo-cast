@@ -42,6 +42,10 @@ export class ForecastWeatherComponent implements OnInit {
     forecast.country = 'asd';
     forecast.city = 'assd';
     forecast.header = 'aaaa';
+    forecast.morn = '18';
+    forecast.day = '12';
+    forecast.eve = '10.5';
+    forecast.night = '10.1';
     return forecast;
   }
 

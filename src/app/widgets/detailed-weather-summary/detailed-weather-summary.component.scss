@@ -1,17 +1,17 @@
 @import "../../../styles";
 
 
-.demo-card-square.mdl-card {
+.weather.mdl-card {
   width: $default-card-size;
-  height: $default-card-size;
+  height: 35rem;
 
 }
 
-.demo-card-square > .mdl-card__title {
+.weather > .mdl-card__title {
   color: $temperature-font-color;
 }
 
-.demo-card-square > .mdl-card__title > img {
+.weather > .mdl-card__title > img {
 }
 
 .mdl-card__supporting-text {
