@@ -3,12 +3,12 @@ import {IconMapperService} from '../../services/icon-mapper.service';
 import WeatherForecast from "./weather-forecast";
 
 @Component({
-  selector: 'weather-summary',
-  templateUrl: './weather-summary.component.html',
-  styleUrls: ['./weather-summary.component.scss'],
+  selector: 'detailed-weather-summary',
+  templateUrl: './detailed-weather-summary.component.html',
+  styleUrls: ['./detailed-weather-summary.component.scss'],
   providers: [IconMapperService]
 })
-export class WeatherSummaryComponent {
+export class DetailedWeatherSummaryComponent {
 
   private _weatherStation:WeatherForecast;
 

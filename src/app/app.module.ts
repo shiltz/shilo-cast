@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CurrentWeatherComponent } from './widgets/current-weather/current-weather.component';
@@ -9,11 +10,12 @@ import { ForecastWeatherComponent } from './widgets/forecast-weather/forecast-we
 import { WeatherSummaryComponent } from './widgets/weather-summary/weather-summary.component';
 import { DetailedWeatherComponent } from './widgets/detailed-weather/detailed-weather.component';
 import { HourlyForecastWeatherComponent } from './widgets/hourly-forecast-weather/hourly-forecast-weather.component';
-import { HomeComponentComponent } from './component/home-component/home-component.component';
+import { HomeComponent } from './component/home-component/home-component.component';
 import { CityWeatherComponentComponent } from './component/city-weather-component/city-weather-component.component';
+import { DetailedWeatherSummaryComponent } from './widgets/detailed-weather-summary/detailed-weather-summary.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponentComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'city/:name', component: CityWeatherComponentComponent, data: { magicName: 'Shilton' } },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
@@ -26,13 +28,15 @@ const appRoutes: Routes = [
     WeatherSummaryComponent,
     DetailedWeatherComponent,
     HourlyForecastWeatherComponent,
-    HomeComponentComponent,
-    CityWeatherComponentComponent
+    HomeComponent,
+    CityWeatherComponentComponent,
+    DetailedWeatherSummaryComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
-      FormsModule
+      FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

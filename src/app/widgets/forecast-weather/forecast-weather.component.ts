@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import * as data from './mock-weather';
 import WeatherForecast from "../weather-summary/weather-forecast";
+
 
 @Component({
   selector: 'forecast-weather',
@@ -9,28 +10,41 @@ import WeatherForecast from "../weather-summary/weather-forecast";
 })
 export class ForecastWeatherComponent implements OnInit {
 
-  constructor() { }
+  @Input('forecast')
+  private forecast:any;
+
+  constructor() {
+  }
 
   ngOnInit() {
 
   }
 
-  getCurrentWeather():WeatherForecast {
-    let weather = new WeatherForecast();
-    weather.id = '800';
-    weather.main = 'Clear';
-    weather.description = 'clear sky';
-    weather.icon = '01n';
-    weather.temp = 288.16;
-    weather.pressure = 1023;
-    weather.humidity = 19;
-    weather.temp_min = 284.15;
-    weather.temp_max = 292.15;
-    weather.visibility = 10000;
-    weather.dt = 1500220800;
-    weather.country = 'ZA';
-    weather.city = 'Sandton';
-    return weather;
+  getCurrentWeather(day:number):any {
+    if (this.forecast !== undefined) {
+      return this.format(this.forecast.list[day]);
+    }
   }
+
+  format(data):WeatherForecast {
+    let forecast = new WeatherForecast();
+    forecast.id = data.id;
+    forecast.main = data.weather[0].main;
+    forecast.description = data.weather[0].description;
+    forecast.icon = data.weather[0].icon;
+    forecast.temp = data.temp.day;
+    forecast.pressure = data.pressure;
+    forecast.humidity = data.humidity;
+    forecast.temp_min = data.temp.day;
+    forecast.temp_max = data.temp.day;
+    forecast.visibility = 0;
+    forecast.dt = data.dt;
+    forecast.country = 'asd';
+    forecast.city = 'assd';
+    forecast.header = 'aaaa';
+    return forecast;
+  }
+
+
 
 }

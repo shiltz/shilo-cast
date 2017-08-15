@@ -1,35 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import WeatherForecast from "../../widgets/weather-summary/weather-forecast";
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'home-component',
   templateUrl: './home-component.component.html',
   styleUrls: ['./home-component.component.scss']
 })
-export class HomeComponentComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
-  constructor() { }
+  private weatherSummary:any;
+  private _durbanWeather:any;
+  private _cptWeather:any;
+  private _jhbWeather:any;
 
-  ngOnInit() {
+  constructor(private http:HttpClient) {
   }
 
-  getCurrentWeather():WeatherForecast {
-    let weather = new WeatherForecast();
-    weather.id = '800';
-    weather.main = 'Clear';
-    weather.description = 'clear sky';
-    weather.icon = '01n';
-    weather.temp = 288.16;
-    weather.pressure = 1023;
-    weather.humidity = 19;
-    weather.temp_min = 284.15;
-    weather.temp_max = 292.15;
-    weather.visibility = 10000;
-    weather.dt = 1500220800;
-    weather.country = 'ZA';
-    weather.city = 'Sandton';
-    weather.header = 'Sandton';
-    return weather;
+  ngOnInit():void {
+    this.http.get('http://localhost/weather_summary.json').subscribe(
+      (data :any) => {
+        console.log('yoh:' + JSON.stringify(data));
+        this.weatherSummary = data;
+        this._durbanWeather = data.list[0];
+        this._cptWeather = data.list[1];
+        this._jhbWeather = data.list[2];
+      }
+    );
   }
 
+  get currentWeatherSummary():any {
+    console.log('shit:' + JSON.stringify(this.weatherSummary));
+    return this.weatherSummary;
+  }
+
+
+  getDurbanWeather():any {
+    return this._durbanWeather;
+  }
+
+  getCptWeather():any {
+    return this._cptWeather;
+  }
+
+  getJhbWeather():any {
+    return this._jhbWeather;
+  }
 }

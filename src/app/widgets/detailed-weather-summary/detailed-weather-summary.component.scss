@@ -1,0 +1,21 @@
+@import "../../../styles";
+
+
+.demo-card-square.mdl-card {
+  width: $default-card-size;
+  height: $default-card-size;
+
+}
+
+.demo-card-square > .mdl-card__title {
+  color: $temperature-font-color;
+}
+
+.demo-card-square > .mdl-card__title > img {
+}
+
+.mdl-card__supporting-text {
+  &--day {
+    color: black;
+  }
+}

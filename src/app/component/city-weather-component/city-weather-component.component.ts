@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import WeatherForecast from "../../widgets/weather-summary/weather-forecast";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'city-weather-component',
@@ -8,28 +9,38 @@ import WeatherForecast from "../../widgets/weather-summary/weather-forecast";
 })
 export class CityWeatherComponentComponent implements OnInit {
 
-  constructor() { }
+  private dailyForecast:any;
+
+  private hourlyForecast:any;
+
+  private currentWeather:any;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get('http://localhost/detailed_summary.json').subscribe(
+      (data:any) => {
+        this.hourlyForecast = data.list;
+        this.dailyForecast = data.forecast;
+        // this.currentWeather = data.list;
+        console.log('shiloDaily' + JSON.stringify(this.dailyForecast));
+
+      }
+    );
+    this.http.get('http://localhost/weather_summary.json').subscribe(
+      (data :any) => {
+        console.log('yoh:' + JSON.stringify(data));
+        this.currentWeather = data.list[0];
+      }
+    );
   }
 
-  getCurrentWeather():WeatherForecast {
-    let weather = new WeatherForecast();
-    weather.id = '800';
-    weather.main = 'Clear';
-    weather.description = 'clear sky';
-    weather.icon = '01n';
-    weather.temp = 288.16;
-    weather.pressure = 1023;
-    weather.humidity = 19;
-    weather.temp_min = 284.15;
-    weather.temp_max = 292.15;
-    weather.visibility = 10000;
-    weather.dt = 1500220800;
-    weather.country = 'ZA';
-    weather.city = 'Sandton';
-    weather.header = 'Current Weather';
-    return weather;
+  getCurrentWeather():any {
+    return this.currentWeather;
+  }
+
+  getDailyForecast():any {
+    return this.dailyForecast;
   }
 
 }
