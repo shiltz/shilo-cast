@@ -20,7 +20,7 @@ export class CityWeatherComponentComponent implements OnInit {
   ngOnInit() {
     this.http.get('http://localhost/detailed_summary.json').subscribe(
       (data:any) => {
-        this.hourlyForecast = data.list;
+        this.hourlyForecast = data.hourly;
         this.dailyForecast = data.forecast;
         // this.currentWeather = data.list;
         console.log('shiloDaily' + JSON.stringify(this.dailyForecast));
@@ -41,6 +41,10 @@ export class CityWeatherComponentComponent implements OnInit {
 
   getDailyForecast():any {
     return this.dailyForecast;
+  }
+
+  getHourlyForecast():any {
+    return this.hourlyForecast;
   }
 
 }

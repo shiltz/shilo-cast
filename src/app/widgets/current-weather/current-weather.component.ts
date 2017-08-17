@@ -10,6 +10,8 @@ import Map from "../detailed-weather/map";
 })
 export class CurrentWeatherComponent implements OnChanges{
 
+  private readonly DAYS: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
 
   @Input('weather')
   private weather:any;
@@ -47,6 +49,7 @@ export class CurrentWeatherComponent implements OnChanges{
       forecast.country = this.weather.sys.country;
       forecast.city = this.weather.name;
       forecast.header = this.weather.name;
+      forecast.additionalInfo = this.getDay(this.weather.dt);
       return forecast;
 
     }
@@ -68,6 +71,11 @@ export class CurrentWeatherComponent implements OnChanges{
     return weather;
   }
 
+  getDay(epoch):string {
+      let day = new Date(epoch * 1000).getDay();
+      return this.DAYS[day];
+  }
+
   getCurrentWeatherConditions():Map[] {
     let conditions:Map[] = new Array();
 
@@ -83,7 +91,7 @@ export class CurrentWeatherComponent implements OnChanges{
   }
 
   getCityName(): string {
-    
+
     return this.weather ? this.weather.name : '';
   }
 }

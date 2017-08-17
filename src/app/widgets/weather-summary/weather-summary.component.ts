@@ -12,7 +12,6 @@ export class WeatherSummaryComponent {
 
   private _weatherStation:WeatherForecast;
 
-  private readonly DAYS: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   public ACTIONS: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -32,16 +31,6 @@ export class WeatherSummaryComponent {
 
   getTemperature():number {
     return this._weatherStation ? this._weatherStation.temp - 273.16 : 0;
-  }
-
-  getDay():string {
-    if (this._weatherStation) {
-      let day = new Date(this._weatherStation.dt * 1000).getDay();
-      return this.DAYS[day];
-    }
-    else {
-      return '';
-    }
   }
 
   @Input('weather')

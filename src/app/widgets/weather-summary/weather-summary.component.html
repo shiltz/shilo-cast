@@ -5,11 +5,11 @@
     <img src="{{getIcon()}}">
   </div>
   <div class="mdl-card__supporting-text">
-    <!--{{weatherStation.description | titlecase }}-->
+    {{weatherStation.description | titlecase }}
   </div>
   <div class="mdl-card__actions mdl-card--border">
     <a class="mdl-card__supporting-text--day">
-      {{getDay()}}
+      {{weatherStation.additionalInfo}}
     </a>
   </div>
 </div>

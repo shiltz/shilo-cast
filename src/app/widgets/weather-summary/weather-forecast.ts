@@ -19,4 +19,5 @@ export default class WeatherForecast {
   day: string;
   eve: string;
   night: string;
+  additionalInfo: string;
 }
