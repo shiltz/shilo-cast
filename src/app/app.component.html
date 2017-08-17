@@ -17,7 +17,9 @@
         </label>
         <div class="mdl-textfield__expandable-holder">
           <input class="mdl-textfield__input" type="text" name="city"
-                 id="fixed-header-drawer-exp" list="browsers">
+                 id="fixed-header-drawer-exp" list="browsers" [(ngModel)]="customCity" (blur)="selectCity()"
+                 (keyup)="$event.keyCode == 13 && selectCity()"
+                  (autocomplete)="selectCity()">
           <label class="mdl-textfield__label" for="fixed-header-drawer-exp">City name</label>
           <datalist id="browsers">
             <option value="Johannesburg">
