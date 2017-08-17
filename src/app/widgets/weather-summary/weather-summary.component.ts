@@ -25,6 +25,7 @@ export class WeatherSummaryComponent {
       return '../../../assets/images/150x150/' + this.iconService.getIconName(this._weatherStation.icon);
     }
     else {
+      console.log('asd' + this._weatherStation.icon);
       return '';
     }
   }
@@ -39,6 +40,10 @@ export class WeatherSummaryComponent {
   }
 
   get weatherStation():WeatherForecast {
+    return this._weatherStation;
+  }
+
+  getWeatherStation():WeatherForecast {
     return this._weatherStation;
   }
 }

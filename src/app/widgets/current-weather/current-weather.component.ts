@@ -54,22 +54,22 @@ export class CurrentWeatherComponent implements OnChanges{
       return forecast;
 
     }
-    let weather = new WeatherForecast();
-    weather.id = '';
-    weather.main = '';
-    weather.description = '';
-    weather.icon = '';
-    weather.temp = null;
-    weather.pressure = null;
-    weather.humidity = null;
-    weather.temp_min = null;
-    weather.temp_max = null;
-    weather.visibility = null;
-    weather.dt = null;
-    weather.country = null;
-    weather.city = null;
-    weather.header = '';
-    return weather;
+    // let weather = new WeatherForecast();
+    // weather.id = '';
+    // weather.main = '';
+    // weather.description = '';
+    // weather.icon = '';
+    // weather.temp = null;
+    // weather.pressure = null;
+    // weather.humidity = null;
+    // weather.temp_min = null;
+    // weather.temp_max = null;
+    // weather.visibility = null;
+    // weather.dt = null;
+    // weather.country = null;
+    // weather.city = null;
+    // weather.header = '';
+    return null;
   }
 
   getDay(epoch):string {

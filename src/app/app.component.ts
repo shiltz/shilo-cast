@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
   }
 
   selectCity(): void {
-    console.log('mmm' + this.customCity);
-    this.router.navigate(['/city/' + this.customCity]);
+     this.router.navigate(['/city/' + this.customCity]);
   }
 }
