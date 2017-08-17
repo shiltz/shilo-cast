@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Weather} from './mock-weather';
 import WeatherForecast from "../weather-summary/weather-forecast";
 import Map from "../detailed-weather/map";
+import {isNullOrUndefined} from "util";
 
 @Component({
   selector: 'current-weather',
@@ -21,19 +22,19 @@ export class CurrentWeatherComponent implements OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    for (let propName in changes) {
-      let chng = changes[propName];
-      let cur  = JSON.stringify(chng.currentValue);
-      let prev = JSON.stringify(chng.previousValue);
-      console.log('propname' + propName);
-      console.log('cur:' + cur);
-      console.log('prev:'+ prev);
-    }
+    // for (let propName in changes) {
+    //   let chng = changes[propName];
+    //   let cur  = JSON.stringify(chng.currentValue);
+    //   let prev = JSON.stringify(chng.previousValue);
+    //   console.log('propname' + propName);
+    //   console.log('cur:' + cur);
+    //   console.log('prev:'+ prev);
+    // }
 
   }
 
   getCurrentWeather():WeatherForecast {
-    if(this.weather !== null) {
+    if(!isNullOrUndefined(this.weather)) {
       let forecast = new WeatherForecast();
       forecast.id = this.weather.id;
       forecast.main = this.weather.weather[0].main;
@@ -79,7 +80,7 @@ export class CurrentWeatherComponent implements OnChanges{
   getCurrentWeatherConditions():Map[] {
     let conditions:Map[] = new Array();
 
-    if(this.weather !== null) {
+    if(!isNullOrUndefined(this.weather)) {
       conditions.push(new Map('pressure', this.weather.main.pressure));
       conditions.push(new Map('humidity', this.weather.main.humidity));
       conditions.push(new Map('temp_min', this.weather.main.temp_min));

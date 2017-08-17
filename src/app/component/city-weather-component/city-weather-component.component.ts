@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import WeatherForecast from "../../widgets/weather-summary/weather-forecast";
 import {HttpClient} from "@angular/common/http";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 
 @Component({
   selector: 'city-weather-component',
@@ -15,24 +16,27 @@ export class CityWeatherComponentComponent implements OnInit {
 
   private currentWeather:any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private router: ActivatedRoute) { }
 
   ngOnInit() {
-    this.http.get('http://localhost/detailed_summary.json').subscribe(
-      (data:any) => {
-        this.hourlyForecast = data.hourly;
-        this.dailyForecast = data.forecast;
-        // this.currentWeather = data.list;
-        console.log('shiloDaily' + JSON.stringify(this.dailyForecast));
+this.router.paramMap.forEach(value => {
+  console.log('asd:' + value.get('name'));
+  this.http.get('http://localhost/detailed_summary.json').subscribe(
+    (data:any) => {
+      this.hourlyForecast = data.hourly;
+      this.dailyForecast = data.forecast;
+      // this.currentWeather = data.list;
 
-      }
-    );
-    this.http.get('http://localhost/weather_summary.json').subscribe(
-      (data :any) => {
-        console.log('yoh:' + JSON.stringify(data));
-        this.currentWeather = data.list[0];
-      }
-    );
+    }
+  );
+  this.http.get('http://localhost/weather_summary.json').subscribe(
+    (data :any) => {
+      this.currentWeather = data.list[0];
+    }
+  );
+});
+
   }
 
   getCurrentWeather():any {

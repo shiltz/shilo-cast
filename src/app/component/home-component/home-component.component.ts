@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   ngOnInit():void {
     this.http.get('http://localhost/weather_summary.json').subscribe(
       (data :any) => {
-        console.log('yoh:' + JSON.stringify(data));
         this.weatherSummary = data;
         this._durbanWeather = data.list[0];
         this._cptWeather = data.list[1];

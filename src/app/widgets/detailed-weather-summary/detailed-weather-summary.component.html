@@ -1,7 +1,7 @@
-<div class="weather mdl-card mdl-shadow--2dp">
+<div class="weather mdl-card mdl-shadow--2dp" *ngIf="getWeatherStation() !== undefined">
   <div class="mdl-card__title mdl-card--expand">
     <h3 class="mdl-card__title-text">
-      {{getWeatherStation().temp_min}}/{{getWeatherStation().temp_max}}&#8451;
+        {{getWeatherStation().temp_min}}/{{getWeatherStation().temp_max}}&#8451;
     </h3>
     <img src="{{getIcon()}}">
   </div>
