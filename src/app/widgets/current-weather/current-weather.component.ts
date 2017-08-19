@@ -81,11 +81,11 @@ export class CurrentWeatherComponent implements OnChanges{
     let conditions:Map[] = new Array();
 
     if(!isNullOrUndefined(this.weather)) {
-      conditions.push(new Map('pressure', this.weather.main.pressure));
-      conditions.push(new Map('humidity', this.weather.main.humidity));
-      conditions.push(new Map('temp_min', this.weather.main.temp_min));
-      conditions.push(new Map('temp_current', this.weather.main.temp));
-      conditions.push(new Map('temp_max', this.weather.main.temp_max));
+      conditions.push(new Map('Pressure', this.weather.main.pressure));
+      conditions.push(new Map('Humidity', this.weather.main.humidity));
+      conditions.push(new Map('Minimum Temp', this.weather.main.temp_min));
+      conditions.push(new Map('Current Temp', this.weather.main.temp));
+      conditions.push(new Map('Maximum Temp', this.weather.main.temp_max));
 
     }
     return conditions;

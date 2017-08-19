@@ -1,14 +1,18 @@
 .main-content {
   display: flex;
   flex-flow: row;
+
   &__aside {
     display: block;
     width: 20rem;
+
+    @media screen and (max-width: 500px) {
+      width: 100px;
+      float: none;
+    }
   }
 
   &__weather {
-    padding: 0rem 8rem 0 8rem;
-    //background-color: white;
     display: flex;
     flex-flow: column;
   }

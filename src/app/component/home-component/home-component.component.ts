@@ -21,17 +21,11 @@ export class HomeComponent implements OnInit {
       (data :any) => {
         this.weatherSummary = data;
         this._durbanWeather = data.list[0];
-        this._cptWeather = data.list[1];
-        this._jhbWeather = data.list[2];
+        this._cptWeather = data.list[2];
+        this._jhbWeather = data.list[1];
       }
     );
   }
-
-  get currentWeatherSummary():any {
-    console.log('shit:' + JSON.stringify(this.weatherSummary));
-    return this.weatherSummary;
-  }
-
 
   getDurbanWeather():any {
     return this._durbanWeather;
