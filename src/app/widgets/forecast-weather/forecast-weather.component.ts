@@ -35,17 +35,17 @@ export class ForecastWeatherComponent implements OnInit {
     forecast.temp = data.temp.day;
     forecast.pressure = data.pressure;
     forecast.humidity = data.humidity;
-    forecast.temp_min = data.temp.day;
-    forecast.temp_max = data.temp.day;
+    forecast.temp_min = data.temp.min;
+    forecast.temp_max = data.temp.max;
     forecast.visibility = 0;
     forecast.dt = data.dt;
     forecast.country = 'asd';
     forecast.city = 'assd';
     forecast.header = 'aaaa';
-    forecast.morn = '18';
-    forecast.day = '12';
-    forecast.eve = '10.5';
-    forecast.night = '10.1';
+    forecast.morn = data.temp.morn;
+    forecast.day = data.temp.day;
+    forecast.eve = data.temp.eve;
+    forecast.night = data.temp.night;
     return forecast;
   }
 
