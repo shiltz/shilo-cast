@@ -9,7 +9,7 @@ import Map from "./map";
 export class DetailedWeatherComponent {
 
   @Input('weather-conditions')
-  private map:Map;
+  public map:Map;
 
   constructor() { }
 

@@ -47,7 +47,7 @@ export class CurrentWeatherComponent implements OnChanges{
       forecast.temp_max = this.weather.main.temp_max;
       forecast.visibility = this.weather.main.visibility;
       forecast.dt = this.weather.dt;
-      forecast.country = this.weather.sys.country;
+      forecast.country = this.weather.sys ? this.weather.sys.country : '';
       forecast.city = this.weather.name;
       forecast.header = this.weather.name;
       forecast.additionalInfo = this.getDay(this.weather.dt);

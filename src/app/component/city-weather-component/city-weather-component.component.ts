@@ -21,8 +21,7 @@ export class CityWeatherComponentComponent implements OnInit {
 
   ngOnInit() {
 this.router.paramMap.forEach(value => {
-  console.log('asd:' + value.get('name'));
-  this.http.get('http://localhost/detailed_summary.json').subscribe(
+  this.http.get('https://polar-badlands-69667.herokuapp.com/forecast/' + value.get('name')).subscribe(
     (data:any) => {
       this.hourlyForecast = data.hourly;
       this.dailyForecast = data.forecast;
@@ -30,9 +29,9 @@ this.router.paramMap.forEach(value => {
 
     }
   );
-  this.http.get('http://localhost/weather_summary.json').subscribe(
+  this.http.get('https://polar-badlands-69667.herokuapp.com/current/' + value.get('name')).subscribe(
     (data :any) => {
-      this.currentWeather = data.list[0];
+      this.currentWeather = data;
     }
   );
 });

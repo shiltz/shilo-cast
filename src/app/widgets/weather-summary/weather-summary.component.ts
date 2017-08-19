@@ -31,7 +31,7 @@ export class WeatherSummaryComponent {
   }
 
   getTemperature():number {
-    return this._weatherStation ? this._weatherStation.temp - 273.16 : 0;
+    return this._weatherStation ? this._weatherStation.temp : 0;
   }
 
   @Input('weather')

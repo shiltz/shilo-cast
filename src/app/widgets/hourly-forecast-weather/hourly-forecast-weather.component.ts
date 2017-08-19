@@ -15,7 +15,7 @@ export class HourlyForecastWeatherComponent implements OnChanges{
   @Input('hourlyForecast')
   private hourlyForecast:any;
 
-  private hourlyForecastList: Array<WeatherForecast> = new Array<WeatherForecast>();
+  public hourlyForecastList: Array<WeatherForecast> = new Array<WeatherForecast>();
 
   constructor() {
   }
@@ -24,7 +24,7 @@ export class HourlyForecastWeatherComponent implements OnChanges{
     for (let propName in changes) {
       if( 'hourlyForecast' === propName && !isNullOrUndefined(changes[propName].currentValue)){
 
-        changes[propName].currentValue.forEach((forecast) => {
+        changes[propName].currentValue.list.forEach((forecast) => {
           this.hourlyForecastList.push(this.createCurrentWeatherForecast(forecast))
         });
       }
@@ -44,7 +44,7 @@ export class HourlyForecastWeatherComponent implements OnChanges{
       forecast.temp_max = weather.main.temp_max;
       forecast.visibility = weather.main.visibility;
       forecast.dt = weather.dt;
-      forecast.country = weather.sys.country;
+      forecast.country = weather.sys ? weather.sys.country : '';
       forecast.city = weather.name;
       forecast.header = weather.name;
       forecast.additionalInfo = this.getDay(weather.dt);

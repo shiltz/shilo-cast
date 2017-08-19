@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 export class AppComponent implements OnInit {
   private weatherSummary: any;
 
-  private customCity: string;
+  public customCity: string;
 
   constructor(private http: HttpClient,
               private router: Router) {
