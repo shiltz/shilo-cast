@@ -54,21 +54,7 @@ export class CurrentWeatherComponent implements OnChanges{
       return forecast;
 
     }
-    // let weather = new WeatherForecast();
-    // weather.id = '';
-    // weather.main = '';
-    // weather.description = '';
-    // weather.icon = '';
-    // weather.temp = null;
-    // weather.pressure = null;
-    // weather.humidity = null;
-    // weather.temp_min = null;
-    // weather.temp_max = null;
-    // weather.visibility = null;
-    // weather.dt = null;
-    // weather.country = null;
-    // weather.city = null;
-    // weather.header = '';
+
     return null;
   }
 
@@ -82,7 +68,7 @@ export class CurrentWeatherComponent implements OnChanges{
 
     if(!isNullOrUndefined(this.weather)) {
       conditions.push(new Map('Pressure', this.weather.main.pressure));
-      conditions.push(new Map('Humidity', this.weather.main.humidity));
+      conditions.push(new Map('Humidity', this.weather.main.humidity ? this.weather.main.humidity : 0 ));
       conditions.push(new Map('Minimum Temp', this.weather.main.temp_min));
       conditions.push(new Map('Current Temp', this.weather.main.temp));
       conditions.push(new Map('Maximum Temp', this.weather.main.temp_max));

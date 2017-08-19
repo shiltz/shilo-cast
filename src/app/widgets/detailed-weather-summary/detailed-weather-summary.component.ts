@@ -30,10 +30,6 @@ export class DetailedWeatherSummaryComponent {
     }
   }
 
-  getTemperature():number {
-    return this._weatherStation ? this._weatherStation.temp - 273.16 : 0;
-  }
-
   getDay():string {
     if (this._weatherStation) {
       let day = new Date(this._weatherStation.dt * 1000).getDay();
