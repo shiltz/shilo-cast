@@ -1,9 +1,14 @@
 <div class="weather mdl-card mdl-shadow--2dp" *ngIf="getWeatherStation() !== undefined">
   <div class="mdl-card__title mdl-card--expand">
-    <h3 class="mdl-card__title-text">
+    <div class="weather-summary__container">
+      <div class="weather-summary__container--image-container">
+        <div class="weather-summary__container--image-spacer"></div>
+        <img src="{{getIcon()}}" class="weather-summary__container--image"/>
+      </div>
+      <h3 class="weather-summary__container--temperature">
         {{getWeatherStation().temp_min}}/{{getWeatherStation().temp_max}}&#8451;
-    </h3>
-    <img src="{{getIcon()}}">
+      </h3>
+    </div>
   </div>
   <div class="mdl-card__supporting-text">
     {{weatherStation.description | titlecase }}

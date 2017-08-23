@@ -1,6 +1,5 @@
 @import "../../../styles";
 
-
 .weather.mdl-card {
   width: $default-card-size;
   height: 35rem;
@@ -18,4 +17,27 @@
   &--day {
     color: black;
   }
+}
+
+.weather-summary {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &--image-container {
+      display: flex;
+      flex-flow: row;
+
+    }
+    &--image {
+      width: 69%;
+
+    }
+
+    &--image-spacer {
+      width: 31%;
+    }
+  }
+
 }
