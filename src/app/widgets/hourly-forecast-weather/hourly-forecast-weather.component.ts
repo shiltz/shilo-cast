@@ -23,7 +23,7 @@ export class HourlyForecastWeatherComponent implements OnChanges{
   ngOnChanges(changes: SimpleChanges) {
     for (let propName in changes) {
       if( 'hourlyForecast' === propName && !isNullOrUndefined(changes[propName].currentValue)){
-
+        this.hourlyForecastList = new Array<WeatherForecast>();
         changes[propName].currentValue.list.forEach((forecast) => {
           this.hourlyForecastList.push(this.createCurrentWeatherForecast(forecast))
         });
