@@ -15,11 +15,13 @@ import {CityWeatherComponentComponent} from './component/city-weather-component/
 import {DetailedWeatherSummaryComponent} from './widgets/detailed-weather-summary/detailed-weather-summary.component';
 
  import {MdProgressSpinnerModule} from '@angular/material';
+import { NotFoundExceptionComponent } from './component/not-found-exception/not-found-exception.component';
 
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'city/:name', component: CityWeatherComponentComponent, data: {magicName: 'Shilton'}},
+  {path: '404', component: NotFoundExceptionComponent},
   {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     HourlyForecastWeatherComponent,
     HomeComponent,
     CityWeatherComponentComponent,
-    DetailedWeatherSummaryComponent
+    DetailedWeatherSummaryComponent,
+    NotFoundExceptionComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

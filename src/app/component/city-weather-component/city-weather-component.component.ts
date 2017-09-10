@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import WeatherForecast from "../../widgets/weather-summary/weather-forecast";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
@@ -16,25 +16,38 @@ export class CityWeatherComponentComponent implements OnInit {
 
   private currentWeather:any;
 
-  constructor(private http: HttpClient,
-              private router: ActivatedRoute) { }
+  constructor(private http:HttpClient,
+              private router:ActivatedRoute,
+              private routerNav:Router) {
+  }
 
   ngOnInit() {
-this.router.paramMap.forEach(value => {
-  this.http.get('https://polar-badlands-69667.herokuapp.com/forecast/' + value.get('name')).subscribe(
-    (data:any) => {
-      this.hourlyForecast = data.hourly;
-      this.dailyForecast = data.forecast;
-      // this.currentWeather = data.list;
+    this.router.paramMap.forEach(value => {
+      this.http.get('https://polar-badlands-69667.herokuapp.com/forecast/' + value.get('name')).subscribe(
+        (data:any) => {
+          this.hourlyForecast = data.hourly;
+          this.dailyForecast = data.forecast;
+        },
+        (error:any) => {
+          if (error.status === 404) {
+            //Go to not found page
+            this.routerNav.navigate(['404']);
 
-    }
-  );
-  this.http.get('https://polar-badlands-69667.herokuapp.com/current/' + value.get('name')).subscribe(
-    (data :any) => {
-      this.currentWeather = data;
-    }
-  );
-});
+          }
+        }
+      );
+      this.http.get('https://polar-badlands-69667.herokuapp.com/current/' + value.get('name')).subscribe(
+        (data:any) => {
+          this.currentWeather = data;
+        },
+        (error:any) => {
+          if (error.status === 404) {
+            //Go to not found page
+            this.routerNav.navigate(['404']);
+          }
+        }
+      );
+    });
 
   }
 

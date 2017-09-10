@@ -11,12 +11,12 @@ import {Router} from "@angular/router";
 
 })
 export class AppComponent implements OnInit {
-  private weatherSummary: any;
+  private weatherSummary:any;
 
-  public customCity: string;
+  public customCity:string;
 
-  constructor(private http: HttpClient,
-              private router: Router) {
+  constructor(private http:HttpClient,
+              private router:Router) {
   }
 
   ngOnInit():void {
@@ -27,7 +27,8 @@ export class AppComponent implements OnInit {
     return new Date().getFullYear();
   }
 
-  selectCity(): void {
-     this.router.navigate(['/city/' + this.customCity]);
+  selectCity():void {
+    this.router.navigate(['/city/' + this.customCity]);
+    this.customCity = undefined;
   }
 }
