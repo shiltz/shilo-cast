@@ -44,10 +44,6 @@ describe('WeatherSummaryComponent', () => {
     expect(compiled.querySelector('h2').textContent).toContain('15'); //TODO: test degrees
   }));
 
-  it('should return the correct day', async(() => {
-    expect(component.getDay()).toEqual('Sunday');
-  }));
-
   it('should return the correct temperature', async(() => {
     expect(component.getTemperature()).toEqual(15);
   }));
