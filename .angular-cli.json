@@ -20,7 +20,8 @@
       "prefix": "",
       "styles": [
         "styles.scss",
-        "../node_modules/material-design-lite/material.min.css"
+        "../node_modules/material-design-lite/material.min.css",
+        "../node_modules/material-icons/css/material-icons.min.css"
       ],
       "scripts": [
         "../node_modules/material-design-lite/material.min.js"
