@@ -30,5 +30,7 @@ export class AppComponent implements OnInit {
   selectCity():void {
     this.router.navigate(['/city/' + this.customCity]);
     this.customCity = undefined;
+    window['dataLayer'].push({'event': 'searchCity'});
+
   }
 }

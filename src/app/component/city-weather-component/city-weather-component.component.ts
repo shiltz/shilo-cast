@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import WeatherForecast from "../../widgets/weather-summary/weather-forecast";
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+
 
 @Component({
   selector: 'city-weather-component',
   templateUrl: './city-weather-component.component.html',
   styleUrls: ['./city-weather-component.component.scss']
 })
-export class CityWeatherComponentComponent implements OnInit {
+export class CityWeatherComponentComponent implements OnInit, OnDestroy {
 
   private dailyForecast:any;
 
@@ -22,6 +22,9 @@ export class CityWeatherComponentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dailyForecast = undefined;
+    this.hourlyForecast = undefined;
+    this.currentWeather = undefined;
     this.router.paramMap.forEach(value => {
       this.http.get('https://polar-badlands-69667.herokuapp.com/forecast/' + value.get('name')).subscribe(
         (data:any) => {
@@ -49,6 +52,10 @@ export class CityWeatherComponentComponent implements OnInit {
       );
     });
 
+  }
+
+  ngOnDestroy() {
+    console.log('wtf');
   }
 
   getCurrentWeather():any {
