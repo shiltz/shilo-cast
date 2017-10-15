@@ -1,7 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HourlyForecastWeatherComponent } from './hourly-forecast-weather.component';
-import { WeatherSummaryComponent } from '../weather-summary/weather-summary.component';
+import {Input, Component} from "@angular/core";
+
+@Component({
+  selector: 'weather-summary',
+  template: '<p>weather summary</p>'
+})
+class WeatherSummary {
+
+  @Input()
+  weather: any;
+}
 
 describe('HourlyForecastWeatherComponent', () => {
   let component: HourlyForecastWeatherComponent;
@@ -9,7 +19,7 @@ describe('HourlyForecastWeatherComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HourlyForecastWeatherComponent, WeatherSummaryComponent ]
+      declarations: [ HourlyForecastWeatherComponent, WeatherSummary ]
     })
     .compileComponents();
   }));

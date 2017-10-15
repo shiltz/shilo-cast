@@ -1,7 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ForecastWeatherComponent } from './forecast-weather.component';
-import { WeatherSummaryComponent } from '../weather-summary/weather-summary.component';
+import {Component, Input} from "@angular/core";
+
+@Component({
+  selector: 'detailed-weather-summary',
+  template: '<p>detailed weather summary</p>'
+})
+class DeatiledWeatherSummary {
+
+  @Input()
+  weather: any;
+}
 
 describe('ForecastWeatherComponent', () => {
   let component: ForecastWeatherComponent;
@@ -9,7 +19,7 @@ describe('ForecastWeatherComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ForecastWeatherComponent, WeatherSummaryComponent ]
+      declarations: [ ForecastWeatherComponent, DeatiledWeatherSummary ]
     })
     .compileComponents();
   }));
@@ -36,6 +46,6 @@ describe('ForecastWeatherComponent', () => {
     const fixture = TestBed.createComponent(ForecastWeatherComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('weather-summary').length).toEqual(5);
+    expect(compiled.querySelectorAll('detailed-weather-summary').length).toEqual(5);
   }));
 });

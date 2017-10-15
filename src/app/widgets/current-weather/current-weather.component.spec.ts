@@ -1,8 +1,27 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { CurrentWeatherComponent } from './current-weather.component';
-import { WeatherSummaryComponent } from '../weather-summary/weather-summary.component';
-import { DetailedWeatherComponent } from '../detailed-weather/detailed-weather.component';
+import {Component, Input} from "@angular/core";
+
+@Component({
+  selector: 'weather-summary',
+  template: '<p>weather summary</p>'
+})
+class WeatherSummaryComponent {
+
+  @Input()
+  weather: any;
+}
+
+@Component({
+  selector: 'detailed-weather',
+  template: '<p>detailed weather</p>'
+})
+class DetailedWeatherComponent {
+
+  @Input('weather-conditions')
+  mode: any;
+}
 
 describe('CurrentWeatherComponent', () => {
   beforeEach(async(() => {

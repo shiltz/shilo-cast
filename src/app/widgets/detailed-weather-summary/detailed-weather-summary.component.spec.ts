@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WeatherSummaryComponent } from './weather-summary.component';
+import { DetailedWeatherSummaryComponent } from './detailed-weather-summary.component';
 import WeatherForecast from "./weather-forecast";
 
-describe('WeatherSummaryComponent', () => {
-  let component: WeatherSummaryComponent;
-  let fixture: ComponentFixture<WeatherSummaryComponent>;
+describe('DetailedWeatherSummaryComponent', () => {
+  let component: DetailedWeatherSummaryComponent;
+  let fixture: ComponentFixture<DetailedWeatherSummaryComponent>;
  let weatherStation:WeatherForecast = new WeatherForecast();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WeatherSummaryComponent ]
+      declarations: [ DetailedWeatherSummaryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WeatherSummaryComponent);
+    fixture = TestBed.createComponent(DetailedWeatherSummaryComponent);
     component = fixture.componentInstance;
     weatherStation.id = '800';
     weatherStation.main = 'Clear';
@@ -41,15 +41,15 @@ describe('WeatherSummaryComponent', () => {
 
   it('should render the header correctly', async(() => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('15'); //TODO: test degrees
+    expect(compiled.querySelector('h3').textContent).toContain('15'); //TODO: test degrees
   }));
 
   it('should return the correct day', async(() => {
     expect(component.getDay()).toEqual('Sunday');
   }));
 
-  it('should return the correct temperature', async(() => {
-    expect(component.getTemperature()).toEqual(15);
-  }));
+  // it('should return the correct temperature', async(() => {
+  //   expect(component.getTemperature()).toEqual(15);
+  // }));
 
 });
